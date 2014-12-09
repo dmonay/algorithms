@@ -6,23 +6,22 @@ import (
 
 func main() {
 	input := []int{5, 4, 1, 8, 7, 2, 6, 3}
-	fmt.Println(mergeSort(input))
-	// fmt.Println(merge([]int{3, 7, 8, 11, 29}, []int{1, 4, 6, 12, 14}))
+
+	fmt.Println("Unsorted array: ", input)
+	fmt.Println("Sorted array: ", mergeSort(input))
 }
 
 func mergeSort(arr []int) []int {
 	// assume input has even number of elements
-	var c []int
 
 	a, b := split(arr)
-	if len(a) == 1 {
-		c = merge(a, b)
-	} else {
-		split(a)
-		split(b)
+	if len(arr) <= 1 {
+		return arr
 	}
+	left := mergeSort(a)
+	right := mergeSort(b)
 
-	return c
+	return merge(left, right)
 }
 
 func split(arr []int) ([]int, []int) {
