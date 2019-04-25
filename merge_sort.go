@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func main() {
+func mergeSortMain() {
 	input := []int{5, 4, 1, 8, 7, 12, 6, 3, 9}
 
 	fmt.Println("Unsorted array: ", input)
@@ -12,7 +12,7 @@ func main() {
 }
 
 func mergeSort(arr []int) []int {
-	a, b := split(arr)
+	a, b := splitMergeSort(arr)
 	if len(arr) <= 1 {
 		return arr
 	}
@@ -22,7 +22,7 @@ func mergeSort(arr []int) []int {
 	return merge(left, right)
 }
 
-func split(arr []int) ([]int, []int) {
+func splitMergeSort(arr []int) ([]int, []int) {
 	len := len(arr)
 	midway := len / 2
 	a := []int{}

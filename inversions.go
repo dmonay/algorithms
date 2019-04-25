@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func main() {
+func inversion() {
 	input := []int{3, 1, 5, 2, 4, 6}
 	fmt.Println(sortCountInv(input))
 }
@@ -13,13 +13,13 @@ func sortCountInv(arr []int) ([]int, int) {
 	n := len(arr)
 	if n == 1 {
 		return arr, 0
-	} else {
-		left, right := split(arr)
-		b, x := sortCountInv(left)
-		c, y := sortCountInv(right)
-		d, z := mergeCountSplitInv(b, c)
-		return d, x + y + z
 	}
+
+	left, right := split(arr)
+	b, x := sortCountInv(left)
+	c, y := sortCountInv(right)
+	d, z := mergeCountSplitInv(b, c)
+	return d, x + y + z
 }
 
 func mergeCountSplitInv(left, right []int) ([]int, int) {
